@@ -174,7 +174,7 @@ function RoomStrip() {
       <div className="rule-thick pt-6">
         <p className="font-stamp text-xs uppercase tracking-widest text-oxblood">§ 02 — Bilder</p>
         <h2 className="mt-2 font-display text-6xl leading-none text-ink md:text-8xl">
-          Bilder folgen
+          Bildplatzhalter
         </h2>
       </div>
       <div className="mt-10 grid gap-6 md:grid-cols-5">

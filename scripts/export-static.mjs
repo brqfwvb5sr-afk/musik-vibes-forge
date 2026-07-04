@@ -89,6 +89,31 @@ async function main() {
       await mkdir(join(filePath, ".."), { recursive: true });
       await writeFile(filePath, html);
     }
+
+    await writeFile(
+      join(outputDir, "404.html"),
+      `<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Weiterleitung - Musik Palast</title>
+    <script>
+      const base = "${basePath}";
+      const routes = new Set(["/bar", "/kontakt", "/impressum", "/datenschutz"]);
+      const path = window.location.pathname.replace(base, "").replace(/\\/$/, "");
+      if (routes.has(path)) {
+        window.location.replace(base + path + "/" + window.location.search + window.location.hash);
+      } else {
+        window.location.replace(base + "/");
+      }
+    </script>
+  </head>
+  <body>
+    <a href="${basePath}/">Zur Startseite</a>
+  </body>
+</html>`,
+    );
   } finally {
     child.kill("SIGTERM");
   }
