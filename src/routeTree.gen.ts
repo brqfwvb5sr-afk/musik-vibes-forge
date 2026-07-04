@@ -10,12 +10,18 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as ProgrammRouteImport } from './routes/programm'
+import { Route as KontaktRouteImport } from './routes/kontakt'
 import { Route as BarRouteImport } from './routes/bar'
 import { Route as IndexRouteImport } from './routes/index'
 
 const ProgrammRoute = ProgrammRouteImport.update({
   id: '/programm',
   path: '/programm',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const KontaktRoute = KontaktRouteImport.update({
+  id: '/kontakt',
+  path: '/kontakt',
   getParentRoute: () => rootRouteImport,
 } as any)
 const BarRoute = BarRouteImport.update({
@@ -32,30 +38,34 @@ const IndexRoute = IndexRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/bar': typeof BarRoute
+  '/kontakt': typeof KontaktRoute
   '/programm': typeof ProgrammRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/bar': typeof BarRoute
+  '/kontakt': typeof KontaktRoute
   '/programm': typeof ProgrammRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/bar': typeof BarRoute
+  '/kontakt': typeof KontaktRoute
   '/programm': typeof ProgrammRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/bar' | '/programm'
+  fullPaths: '/' | '/bar' | '/kontakt' | '/programm'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/bar' | '/programm'
-  id: '__root__' | '/' | '/bar' | '/programm'
+  to: '/' | '/bar' | '/kontakt' | '/programm'
+  id: '__root__' | '/' | '/bar' | '/kontakt' | '/programm'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   BarRoute: typeof BarRoute
+  KontaktRoute: typeof KontaktRoute
   ProgrammRoute: typeof ProgrammRoute
 }
 
@@ -66,6 +76,13 @@ declare module '@tanstack/react-router' {
       path: '/programm'
       fullPath: '/programm'
       preLoaderRoute: typeof ProgrammRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/kontakt': {
+      id: '/kontakt'
+      path: '/kontakt'
+      fullPath: '/kontakt'
+      preLoaderRoute: typeof KontaktRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/bar': {
@@ -88,6 +105,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   BarRoute: BarRoute,
+  KontaktRoute: KontaktRoute,
   ProgrammRoute: ProgrammRoute,
 }
 export const routeTree = rootRouteImport
