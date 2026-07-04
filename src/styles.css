@@ -5,17 +5,9 @@
 @custom-variant dark (&:is(.dark *));
 
 /*
- * Design system definition.
- *
- * The @theme inline block maps CSS custom properties to Tailwind utility
- * classes (e.g. --color-primary -> bg-primary, text-primary).
- *
- * The :root and .dark blocks define the actual color values using oklch.
- * All colors MUST use oklch format.
- *
- * To add a new semantic color:
- * 1. Add the variable to :root (light value) and .dark (dark value)
- * 2. Register it in @theme inline as --color-<name>: var(--<name>)
+ * MUSIK PALAST — Village Music Bar / Tanzbar in Inwil.
+ * Design system: hand-printed gig-poster wall, oxblood + bone + amber neon,
+ * condensed wood-type display paired with a warm humanist sans and typewriter accents.
  */
 
 @theme inline {
@@ -59,77 +51,81 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
+  --color-ink: var(--ink);
+  --color-bone: var(--bone);
+  --color-oxblood: var(--oxblood);
+  --color-oxblood-deep: var(--oxblood-deep);
+  --color-amber-neon: var(--amber-neon);
+  --color-mustard: var(--mustard);
+  --color-parchment: var(--parchment);
+  --font-display: "Bebas Neue", "Anton", sans-serif;
+  --font-body: "Work Sans", system-ui, sans-serif;
+  --font-stamp: "Special Elite", "Courier New", monospace;
 }
 
 :root {
-  --radius: 0.625rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.129 0.042 264.695);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.129 0.042 264.695);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.129 0.042 264.695);
-  --primary: oklch(0.208 0.042 265.755);
-  --primary-foreground: oklch(0.984 0.003 247.858);
-  --secondary: oklch(0.968 0.007 247.896);
-  --secondary-foreground: oklch(0.208 0.042 265.755);
-  --muted: oklch(0.968 0.007 247.896);
-  --muted-foreground: oklch(0.554 0.046 257.417);
-  --accent: oklch(0.968 0.007 247.896);
-  --accent-foreground: oklch(0.208 0.042 265.755);
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.984 0.003 247.858);
-  --border: oklch(0.929 0.013 255.508);
-  --input: oklch(0.929 0.013 255.508);
-  --ring: oklch(0.704 0.04 256.788);
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
-  --sidebar: oklch(0.984 0.003 247.858);
-  --sidebar-foreground: oklch(0.129 0.042 264.695);
-  --sidebar-primary: oklch(0.208 0.042 265.755);
-  --sidebar-primary-foreground: oklch(0.984 0.003 247.858);
-  --sidebar-accent: oklch(0.968 0.007 247.896);
-  --sidebar-accent-foreground: oklch(0.208 0.042 265.755);
-  --sidebar-border: oklch(0.929 0.013 255.508);
-  --sidebar-ring: oklch(0.704 0.04 256.788);
+  --radius: 0.125rem;
+  /* Poster wall palette */
+  --ink: oklch(0.14 0.02 40);
+  --bone: oklch(0.94 0.02 80);
+  --parchment: oklch(0.89 0.035 75);
+  --oxblood: oklch(0.38 0.14 22);
+  --oxblood-deep: oklch(0.26 0.11 22);
+  --amber-neon: oklch(0.82 0.17 78);
+  --mustard: oklch(0.72 0.15 70);
+
+  --background: var(--bone);
+  --foreground: var(--ink);
+  --card: var(--parchment);
+  --card-foreground: var(--ink);
+  --popover: var(--bone);
+  --popover-foreground: var(--ink);
+  --primary: var(--oxblood);
+  --primary-foreground: var(--bone);
+  --secondary: var(--ink);
+  --secondary-foreground: var(--bone);
+  --muted: oklch(0.86 0.025 75);
+  --muted-foreground: oklch(0.35 0.03 40);
+  --accent: var(--amber-neon);
+  --accent-foreground: var(--ink);
+  --destructive: var(--oxblood);
+  --destructive-foreground: var(--bone);
+  --border: oklch(0.78 0.03 60);
+  --input: oklch(0.86 0.025 75);
+  --ring: var(--oxblood);
+  --chart-1: var(--oxblood);
+  --chart-2: var(--amber-neon);
+  --chart-3: var(--mustard);
+  --chart-4: var(--ink);
+  --chart-5: var(--parchment);
+  --sidebar: var(--parchment);
+  --sidebar-foreground: var(--ink);
+  --sidebar-primary: var(--oxblood);
+  --sidebar-primary-foreground: var(--bone);
+  --sidebar-accent: var(--amber-neon);
+  --sidebar-accent-foreground: var(--ink);
+  --sidebar-border: oklch(0.78 0.03 60);
+  --sidebar-ring: var(--oxblood);
 }
 
 .dark {
-  --background: oklch(0.129 0.042 264.695);
-  --foreground: oklch(0.984 0.003 247.858);
-  --card: oklch(0.208 0.042 265.755);
-  --card-foreground: oklch(0.984 0.003 247.858);
-  --popover: oklch(0.208 0.042 265.755);
-  --popover-foreground: oklch(0.984 0.003 247.858);
-  --primary: oklch(0.929 0.013 255.508);
-  --primary-foreground: oklch(0.208 0.042 265.755);
-  --secondary: oklch(0.279 0.041 260.031);
-  --secondary-foreground: oklch(0.984 0.003 247.858);
-  --muted: oklch(0.279 0.041 260.031);
-  --muted-foreground: oklch(0.704 0.04 256.788);
-  --accent: oklch(0.279 0.041 260.031);
-  --accent-foreground: oklch(0.984 0.003 247.858);
-  --destructive: oklch(0.704 0.191 22.216);
-  --destructive-foreground: oklch(0.984 0.003 247.858);
-  --border: oklch(1 0 0 / 10%);
+  --background: var(--ink);
+  --foreground: var(--bone);
+  --card: oklch(0.2 0.03 30);
+  --card-foreground: var(--bone);
+  --popover: oklch(0.2 0.03 30);
+  --popover-foreground: var(--bone);
+  --primary: var(--amber-neon);
+  --primary-foreground: var(--ink);
+  --secondary: var(--oxblood);
+  --secondary-foreground: var(--bone);
+  --muted: oklch(0.22 0.02 30);
+  --muted-foreground: oklch(0.7 0.03 60);
+  --accent: var(--amber-neon);
+  --accent-foreground: var(--ink);
+  --border: oklch(1 0 0 / 12%);
   --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.551 0.027 264.364);
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.208 0.042 265.755);
-  --sidebar-foreground: oklch(0.984 0.003 247.858);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.984 0.003 247.858);
-  --sidebar-accent: oklch(0.279 0.041 260.031);
-  --sidebar-accent-foreground: oklch(0.984 0.003 247.858);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.551 0.027 264.364);
+  --ring: var(--amber-neon);
 }
 
 @layer base {
@@ -140,5 +136,68 @@
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
+    font-family: var(--font-body);
+    background-image:
+      radial-gradient(oklch(0.14 0.02 40 / 0.05) 1px, transparent 1px),
+      radial-gradient(oklch(0.14 0.02 40 / 0.03) 1px, transparent 1px);
+    background-size: 24px 24px, 8px 8px;
+    background-position: 0 0, 4px 4px;
   }
+  h1, h2, h3, .font-display { font-family: var(--font-display); letter-spacing: 0.01em; }
+  .font-stamp { font-family: var(--font-stamp); letter-spacing: 0.04em; }
+}
+
+@utility paper-torn {
+  position: relative;
+  background: var(--color-bone);
+  box-shadow:
+    0 1px 0 oklch(0 0 0 / 0.04),
+    0 12px 24px -12px oklch(0.14 0.02 40 / 0.35),
+    inset 0 0 60px oklch(0.14 0.02 40 / 0.04);
+}
+@utility poster {
+  background: var(--color-bone);
+  color: var(--color-ink);
+  border: 1px solid oklch(0.14 0.02 40 / 0.15);
+  box-shadow: 4px 6px 0 var(--color-ink);
+}
+@utility poster-red {
+  background: var(--color-oxblood);
+  color: var(--color-bone);
+  box-shadow: 4px 6px 0 var(--color-ink);
+}
+@utility poster-amber {
+  background: var(--color-amber-neon);
+  color: var(--color-ink);
+  box-shadow: 4px 6px 0 var(--color-ink);
+}
+@utility neon-glow {
+  color: var(--color-amber-neon);
+  text-shadow:
+    0 0 4px oklch(0.82 0.17 78 / 0.9),
+    0 0 16px oklch(0.82 0.17 78 / 0.6),
+    0 0 36px oklch(0.82 0.17 78 / 0.35);
+}
+@utility rule-thick {
+  border-top: 6px double var(--color-ink);
+}
+@utility marquee-track {
+  animation: marquee 40s linear infinite;
+}
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+@keyframes flicker {
+  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+    text-shadow:
+      0 0 4px oklch(0.82 0.17 78 / 0.9),
+      0 0 16px oklch(0.82 0.17 78 / 0.7),
+      0 0 36px oklch(0.82 0.17 78 / 0.4);
+    opacity: 1;
+  }
+  20%, 24%, 55% { text-shadow: none; opacity: 0.7; }
+}
+@utility neon-flicker {
+  animation: flicker 6s infinite;
 }

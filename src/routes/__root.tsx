@@ -16,17 +16,13 @@ function NotFoundComponent() {
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
       <div className="max-w-md text-center">
-        <h1 className="text-7xl font-bold text-foreground">404</h1>
-        <h2 className="mt-4 text-xl font-semibold text-foreground">Page not found</h2>
-        <p className="mt-2 text-sm text-muted-foreground">
-          The page you're looking for doesn't exist or has been moved.
-        </p>
+        <p className="font-stamp text-xs uppercase tracking-widest text-oxblood">Kein Auftritt · No Show</p>
+        <h1 className="mt-4 font-display text-8xl text-ink">404</h1>
+        <h2 className="mt-2 font-display text-2xl uppercase text-ink">Diese Bühne ist leer.</h2>
+        <p className="mt-3 text-sm text-muted-foreground">Die Seite existiert nicht — oder wurde abgesagt.</p>
         <div className="mt-6">
-          <Link
-            to="/"
-            className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
-          >
-            Go home
+          <Link to="/" className="poster-red inline-flex items-center justify-center px-6 py-3 font-display text-lg uppercase">
+            Zurück zum Palast
           </Link>
         </div>
       </div>
@@ -77,19 +73,25 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "Musik Palast — Live-Musik & Tanzbar in Inwil" },
+      { name: "description", content: "Der Musik Palast in Inwil (LU): Live-Coverbands, Tanzfläche, gemütliche Bar. Von Frauen geführt. Geöffnet bis 00:30." },
+      { name: "author", content: "Musik Palast Inwil" },
+      { property: "og:title", content: "Musik Palast — Live-Musik & Tanzbar in Inwil" },
+      { property: "og:description", content: "Live-Coverbands, Tanzfläche, gemütliche Bar in Inwil (LU). Von Frauen geführt." },
       { property: "og:type", content: "website" },
+      { property: "og:site_name", content: "Musik Palast" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:site", content: "@Lovable" },
     ],
     links: [
       {
         rel: "stylesheet",
         href: appCss,
+      },
+      { rel: "preconnect", href: "https://fonts.googleapis.com" },
+      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
+      {
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Special+Elite&family=Work+Sans:wght@300;400;500;600&display=swap",
       },
       { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
     ],
@@ -119,8 +121,109 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
-      <Outlet />
+      <SiteChrome>
+        <Outlet />
+      </SiteChrome>
     </QueryClientProvider>
+  );
+}
+
+function SiteChrome({ children }: { children: ReactNode }) {
+  const nav = [
+    { to: "/", label: "Palast" },
+    { to: "/programm", label: "Programm" },
+    { to: "/bar", label: "Bar" },
+    { to: "/kontakt", label: "Besuch" },
+  ] as const;
+  return (
+    <div className="min-h-screen bg-background text-foreground">
+      <header className="sticky top-0 z-40 border-b-2 border-ink bg-bone/95 backdrop-blur">
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6">
+          <Link to="/" className="group flex items-baseline gap-2">
+            <span className="font-display text-3xl leading-none text-ink sm:text-4xl">MUSIK PALAST</span>
+            <span className="hidden font-stamp text-[10px] uppercase tracking-widest text-oxblood sm:inline">est. Inwil · LU</span>
+          </Link>
+          <nav className="flex items-center gap-1 sm:gap-2">
+            {nav.map((n) => (
+              <Link
+                key={n.to}
+                to={n.to}
+                className="rounded-none px-2 py-1 font-display text-lg uppercase text-ink hover:text-oxblood sm:px-3 sm:text-xl"
+                activeOptions={{ exact: n.to === "/" }}
+                activeProps={{ className: "text-oxblood underline underline-offset-4 decoration-2" }}
+              >
+                {n.label}
+              </Link>
+            ))}
+            <a
+              href="tel:+41414484045"
+              className="poster-red ml-2 hidden items-center gap-2 px-3 py-2 font-display text-sm uppercase sm:inline-flex"
+            >
+              041 448 40 45
+            </a>
+          </nav>
+        </div>
+        {/* Marquee ribbon */}
+        <div className="overflow-hidden border-t border-ink/20 bg-ink text-bone">
+          <div className="marquee-track flex whitespace-nowrap py-1.5 font-stamp text-xs uppercase tracking-widest">
+            {Array.from({ length: 2 }).map((_, k) => (
+              <div key={k} className="flex shrink-0 items-center gap-8 pr-8">
+                <span>★ Heute live: Die Ringos</span>
+                <span>Tanzfläche offen bis 00:30</span>
+                <span>Cover-Rock · Oldies · Schlager</span>
+                <span>Von Frauen geführt seit Jahren</span>
+                <span>Hauptstrasse 22 · 6034 Inwil</span>
+                <span>★ Reservation: 041 448 40 45</span>
+                <span>Cover-Rock · Oldies · Schlager</span>
+                <span>Tanzfläche offen bis 00:30</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </header>
+      <main>{children}</main>
+      <SiteFooter />
+    </div>
+  );
+}
+
+function SiteFooter() {
+  return (
+    <footer className="mt-24 border-t-4 border-double border-ink bg-ink text-bone">
+      <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6">
+        <div className="grid gap-10 md:grid-cols-3">
+          <div>
+            <p className="font-stamp text-xs uppercase tracking-widest text-amber-neon">Der</p>
+            <p className="font-display text-6xl leading-none">MUSIK</p>
+            <p className="neon-flicker font-display text-6xl leading-none">PALAST</p>
+            <p className="mt-4 max-w-xs text-sm text-bone/70">
+              Live-Coverbands, Tanzfläche und eine ehrliche Bar mitten in Inwil. Von Frauen geführt.
+            </p>
+          </div>
+          <div className="font-stamp text-sm leading-loose">
+            <p className="mb-2 font-display text-xl uppercase text-amber-neon">Besuch</p>
+            Hauptstrasse 22<br />
+            6034 Inwil · Luzern<br />
+            <a href="tel:+41414484045" className="underline decoration-amber-neon underline-offset-4">041 448 40 45</a><br />
+            <a href="https://musik-palast.ch" className="underline decoration-amber-neon underline-offset-4">musik-palast.ch</a>
+          </div>
+          <div className="font-stamp text-sm leading-loose">
+            <p className="mb-2 font-display text-xl uppercase text-amber-neon">Öffnungszeiten</p>
+            Do – Sa · ab 20:00<br />
+            Live-Sets · ab 21:30<br />
+            Küche warm · bis 23:30<br />
+            Letzter Drink · 00:30
+          </div>
+        </div>
+        <p className="mt-12 font-display text-[18vw] leading-[0.85] tracking-tighter text-oxblood/40 md:text-[14vw]">
+          MUSIKPALAST
+        </p>
+        <div className="mt-6 flex flex-wrap items-center justify-between gap-2 border-t border-bone/20 pt-4 font-stamp text-[10px] uppercase tracking-widest text-bone/60">
+          <span>© Musik Palast Inwil</span>
+          <span>Von Frauen geführt · Woman-owned</span>
+          <span>Bühne offen · Türe zu um 00:30</span>
+        </div>
+      </div>
+    </footer>
   );
 }
