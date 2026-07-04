@@ -31,3 +31,4 @@ static-site
 *.njsproj
 *.sln
 *.sw?
+.vercel
