@@ -174,7 +174,7 @@ function RoomStrip() {
       <div className="rule-thick pt-6">
         <p className="font-stamp text-xs uppercase tracking-widest text-oxblood">§ 02 — Bilder</p>
         <h2 className="mt-2 font-display text-6xl leading-none text-ink md:text-8xl">
-          Bildplatzhalter
+          Einblick
         </h2>
       </div>
       <div className="mt-10 grid gap-6 md:grid-cols-5">
@@ -191,7 +191,7 @@ function RoomStrip() {
             className="min-h-[520px] h-full w-full"
           />
           <div className="absolute bottom-0 left-0 right-0 bg-ink/85 p-4 font-stamp text-xs uppercase tracking-widest text-bone">
-            Platzhalter · neues Foto einsetzen
+            Saal · Stimmung · Tanzfläche
           </div>
         </motion.div>
         <motion.div
@@ -207,7 +207,7 @@ function RoomStrip() {
             className="min-h-[260px] h-full w-full"
           />
           <div className="absolute bottom-0 left-0 right-0 bg-oxblood p-4 font-stamp text-xs uppercase tracking-widest text-bone">
-            Platzhalter · Motiv offen
+            Licht · Bar · Details
           </div>
         </motion.div>
         <motion.div

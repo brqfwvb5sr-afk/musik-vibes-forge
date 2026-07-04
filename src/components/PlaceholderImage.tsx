@@ -16,27 +16,29 @@ export function PlaceholderImage({
   return (
     <div
       role="img"
-      aria-label={`Bildplatzhalter: ${label}`}
-      className={`relative flex overflow-hidden ${
-        framed ? `border-2 border-dashed ${isDark ? "border-bone/25" : "border-ink/25"}` : ""
+      aria-label={label}
+      className={`relative overflow-hidden ${
+        framed ? `border-2 ${isDark ? "border-bone/20" : "border-ink/15"}` : ""
       } ${isDark ? "bg-ink text-bone" : "bg-parchment text-ink"} ${className}`}
     >
       <div
-        className="absolute inset-0 opacity-70"
+        className="absolute inset-0"
         style={{
           backgroundImage: isDark
-            ? "linear-gradient(135deg, oklch(0.38 0.14 22 / 0.35), transparent 45%), repeating-linear-gradient(45deg, oklch(0.94 0.02 80 / 0.08) 0 2px, transparent 2px 22px)"
-            : "linear-gradient(135deg, oklch(0.82 0.17 78 / 0.24), transparent 42%), repeating-linear-gradient(45deg, oklch(0.14 0.02 40 / 0.08) 0 2px, transparent 2px 22px)",
+            ? "radial-gradient(circle at 28% 28%, oklch(0.82 0.17 78 / 0.52), transparent 22%), radial-gradient(circle at 70% 42%, oklch(0.48 0.18 25 / 0.52), transparent 30%), linear-gradient(150deg, oklch(0.15 0.03 45) 0%, oklch(0.21 0.05 35) 48%, oklch(0.08 0.02 35) 100%)"
+            : "radial-gradient(circle at 30% 22%, oklch(0.86 0.16 80 / 0.62), transparent 24%), radial-gradient(circle at 76% 36%, oklch(0.55 0.16 24 / 0.3), transparent 30%), linear-gradient(145deg, oklch(0.88 0.04 78) 0%, oklch(0.74 0.07 70) 48%, oklch(0.37 0.05 45) 100%)",
         }}
       />
-      <div className="relative m-auto px-6 py-10 text-center">
-        <p
-          className={`font-stamp text-xs uppercase tracking-widest ${isDark ? "text-amber-neon" : "text-oxblood"}`}
-        >
-          Bildplatzhalter
-        </p>
-        <p className="mt-3 font-display text-5xl uppercase leading-none md:text-6xl">{label}</p>
-      </div>
+      <div
+        className="absolute inset-0 opacity-55"
+        style={{
+          backgroundImage:
+            "repeating-linear-gradient(90deg, transparent 0 34px, oklch(0.95 0.02 80 / 0.08) 34px 35px), repeating-linear-gradient(0deg, transparent 0 44px, oklch(0.1 0.02 40 / 0.08) 44px 45px)",
+        }}
+      />
+      <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-ink/60 to-transparent" />
+      <div className="absolute left-5 top-5 h-2 w-16 bg-amber-neon/80 shadow-[0_0_24px_oklch(0.82_0.17_78_/_0.8)]" />
+      <div className="absolute bottom-5 right-5 h-20 w-20 border-b-2 border-r-2 border-bone/35" />
     </div>
   );
 }
