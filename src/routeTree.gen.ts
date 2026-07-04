@@ -10,8 +10,9 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
-import { Route as ProgrammRouteImport } from './routes/programm'
 import { Route as KontaktRouteImport } from './routes/kontakt'
+import { Route as ImpressumRouteImport } from './routes/impressum'
+import { Route as DatenschutzRouteImport } from './routes/datenschutz'
 import { Route as BarRouteImport } from './routes/bar'
 import { Route as IndexRouteImport } from './routes/index'
 
@@ -20,14 +21,19 @@ const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   path: '/sitemap.xml',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ProgrammRoute = ProgrammRouteImport.update({
-  id: '/programm',
-  path: '/programm',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const KontaktRoute = KontaktRouteImport.update({
   id: '/kontakt',
   path: '/kontakt',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ImpressumRoute = ImpressumRouteImport.update({
+  id: '/impressum',
+  path: '/impressum',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DatenschutzRoute = DatenschutzRouteImport.update({
+  id: '/datenschutz',
+  path: '/datenschutz',
   getParentRoute: () => rootRouteImport,
 } as any)
 const BarRoute = BarRouteImport.update({
@@ -44,38 +50,50 @@ const IndexRoute = IndexRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/bar': typeof BarRoute
+  '/datenschutz': typeof DatenschutzRoute
+  '/impressum': typeof ImpressumRoute
   '/kontakt': typeof KontaktRoute
-  '/programm': typeof ProgrammRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/bar': typeof BarRoute
+  '/datenschutz': typeof DatenschutzRoute
+  '/impressum': typeof ImpressumRoute
   '/kontakt': typeof KontaktRoute
-  '/programm': typeof ProgrammRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/bar': typeof BarRoute
+  '/datenschutz': typeof DatenschutzRoute
+  '/impressum': typeof ImpressumRoute
   '/kontakt': typeof KontaktRoute
-  '/programm': typeof ProgrammRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/bar' | '/kontakt' | '/programm' | '/sitemap.xml'
+  fullPaths:
+    '/' | '/bar' | '/datenschutz' | '/impressum' | '/kontakt' | '/sitemap.xml'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/bar' | '/kontakt' | '/programm' | '/sitemap.xml'
-  id: '__root__' | '/' | '/bar' | '/kontakt' | '/programm' | '/sitemap.xml'
+  to: '/' | '/bar' | '/datenschutz' | '/impressum' | '/kontakt' | '/sitemap.xml'
+  id:
+    | '__root__'
+    | '/'
+    | '/bar'
+    | '/datenschutz'
+    | '/impressum'
+    | '/kontakt'
+    | '/sitemap.xml'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   BarRoute: typeof BarRoute
+  DatenschutzRoute: typeof DatenschutzRoute
+  ImpressumRoute: typeof ImpressumRoute
   KontaktRoute: typeof KontaktRoute
-  ProgrammRoute: typeof ProgrammRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
 }
 
@@ -88,18 +106,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SitemapDotxmlRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/programm': {
-      id: '/programm'
-      path: '/programm'
-      fullPath: '/programm'
-      preLoaderRoute: typeof ProgrammRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/kontakt': {
       id: '/kontakt'
       path: '/kontakt'
       fullPath: '/kontakt'
       preLoaderRoute: typeof KontaktRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/impressum': {
+      id: '/impressum'
+      path: '/impressum'
+      fullPath: '/impressum'
+      preLoaderRoute: typeof ImpressumRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/datenschutz': {
+      id: '/datenschutz'
+      path: '/datenschutz'
+      fullPath: '/datenschutz'
+      preLoaderRoute: typeof DatenschutzRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/bar': {
@@ -122,10 +147,21 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   BarRoute: BarRoute,
+  DatenschutzRoute: DatenschutzRoute,
+  ImpressumRoute: ImpressumRoute,
   KontaktRoute: KontaktRoute,
-  ProgrammRoute: ProgrammRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}

@@ -5,9 +5,16 @@ export const Route = createFileRoute("/kontakt")({
   head: () => ({
     meta: [
       { title: "Besuch & Reservation — Musik Palast Inwil" },
-      { name: "description", content: "Hauptstrasse 22, 6034 Inwil. Reservationen unter 041 448 40 45. Öffnungszeiten und Anfahrt zum Musik Palast." },
+      {
+        name: "description",
+        content:
+          "Hauptstrasse 22, 6034 Inwil. Reservationen unter 041 448 40 45. Öffnungszeiten und Anfahrt zum Musik Palast.",
+      },
       { property: "og:title", content: "Besuch & Reservation — Musik Palast Inwil" },
-      { property: "og:description", content: "Hauptstrasse 22, 6034 Inwil · 041 448 40 45. Öffnungszeiten und Anfahrt." },
+      {
+        property: "og:description",
+        content: "Hauptstrasse 22, 6034 Inwil · 041 448 40 45. Öffnungszeiten und Anfahrt.",
+      },
       { property: "og:url", content: "/kontakt" },
     ],
     links: [{ rel: "canonical", href: "/kontakt" }],
@@ -41,13 +48,18 @@ function KontaktPage() {
     <>
       <header className="border-b-4 border-double border-ink bg-parchment">
         <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 md:py-28">
-          <p className="font-stamp text-xs uppercase tracking-[0.4em] text-oxblood">Wegweiser · Route</p>
-          <h1 className="mt-4 font-display text-ink" style={{ fontSize: "clamp(3.5rem, 14vw, 12rem)", lineHeight: 0.85 }}>
+          <p className="font-stamp text-xs uppercase tracking-[0.4em] text-oxblood">
+            Wegweiser · Route
+          </p>
+          <h1
+            className="mt-4 font-display text-ink"
+            style={{ fontSize: "clamp(3.5rem, 14vw, 12rem)", lineHeight: 0.85 }}
+          >
             BESUCH.
           </h1>
           <p className="mt-6 max-w-2xl text-lg text-ink/80">
-            Der Musik Palast steht mitten in Inwil, direkt an der Hauptstrasse. Parkplätze davor,
-            Bushaltestelle vor der Tür, letzter Zug — naja, kommt mit Auto.
+            Der Musik Palast steht mitten in Inwil, direkt an der Hauptstrasse. Parkplätze gibt es
+            direkt vor dem Haus, die Bushaltestelle Inwil Pannerhof liegt in der Nähe.
           </p>
         </div>
       </header>
@@ -59,7 +71,11 @@ function KontaktPage() {
             <div>
               <p className="font-stamp text-xs uppercase tracking-widest text-oxblood">Adresse</p>
               <p className="mt-2 font-display text-4xl leading-tight text-ink">
-                Hauptstrasse 22<br />6034 Inwil<br />Kanton Luzern
+                Hauptstrasse 22
+                <br />
+                6034 Inwil
+                <br />
+                Kanton Luzern
               </p>
               <a
                 href="https://www.google.com/maps/dir/?api=1&destination=Musik+Palast+Hauptstrasse+22+6034+Inwil"
@@ -72,18 +88,25 @@ function KontaktPage() {
             </div>
 
             <div>
-              <p className="font-stamp text-xs uppercase tracking-widest text-oxblood">Reservation</p>
-              <a href="tel:+41414484045" className="mt-2 block font-display text-5xl leading-none text-ink hover:text-oxblood">
+              <p className="font-stamp text-xs uppercase tracking-widest text-oxblood">
+                Reservation
+              </p>
+              <a
+                href="tel:+41414484045"
+                className="mt-2 block font-display text-5xl leading-none text-ink hover:text-oxblood"
+              >
                 041 448 40 45
               </a>
               <p className="mt-3 max-w-sm text-ink/70">
-                Am liebsten telefonisch — dann wissen wir, ob's ein Tanzplatz-Tisch werden soll oder ein
-                ruhiger in der Ecke.
+                Am liebsten telefonisch — dann wissen wir, ob's ein Tanzplatz-Tisch werden soll oder
+                ein ruhiger in der Ecke.
               </p>
             </div>
 
             <div>
-              <p className="font-stamp text-xs uppercase tracking-widest text-oxblood">Öffnungszeiten</p>
+              <p className="font-stamp text-xs uppercase tracking-widest text-oxblood">
+                Öffnungszeiten
+              </p>
               <table className="mt-3 w-full font-body">
                 <tbody className="divide-y divide-ink/20">
                   {[
@@ -95,20 +118,13 @@ function KontaktPage() {
                   ].map(([d, h]) => (
                     <tr key={d}>
                       <td className="py-3 font-display text-xl uppercase text-ink">{d}</td>
-                      <td className="py-3 text-right font-stamp text-sm uppercase tracking-widest text-ink/70">{h}</td>
+                      <td className="py-3 text-right font-stamp text-sm uppercase tracking-widest text-ink/70">
+                        {h}
+                      </td>
                     </tr>
                   ))}
                 </tbody>
               </table>
-            </div>
-
-            <div className="poster-red p-6">
-              <p className="font-stamp text-xs uppercase tracking-widest text-bone/80">Private Feier</p>
-              <h3 className="mt-1 font-display text-2xl uppercase">Den ganzen Palast?</h3>
-              <p className="mt-2 text-bone/90">
-                Geburtstag, Hochzeit, Firmen-Fest — wir schliessen den Saal für euch. Mit Band, mit DJ
-                oder einfach mit Bar. Anfragen bitte telefonisch.
-              </p>
             </div>
           </div>
 
@@ -131,7 +147,7 @@ function KontaktPage() {
 
             <div className="mt-6 grid grid-cols-3 gap-3">
               {[
-                ["ÖV", "Bus 22 · Hst. Inwil Dorf"],
+                ["ÖV", "Linien 110 und 111 · Haltestelle Inwil Pannerhof"],
                 ["Auto", "Gratis-Parkplätze vor dem Haus"],
                 ["Barrierefrei", "Ebenerdig, WC im Erdgeschoss"],
               ].map(([t, d]) => (
