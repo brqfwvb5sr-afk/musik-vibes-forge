@@ -1,5 +1,4 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { motion } from "motion/react";
 import { PlaceholderImage } from "../components/PlaceholderImage";
 
 export const Route = createFileRoute("/bar")({
@@ -114,12 +113,8 @@ function BarPage() {
 
         <div className="grid gap-x-16 gap-y-14 md:grid-cols-2">
           {menu.map((group, gi) => (
-            <motion.div
+            <div
               key={group.kind}
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-40px" }}
-              transition={{ duration: 0.4, delay: gi * 0.05 }}
             >
               <div className="flex items-baseline justify-between border-b-2 border-ink pb-2">
                 <h2 className="font-display text-3xl uppercase text-ink md:text-4xl">
@@ -140,7 +135,7 @@ function BarPage() {
                   </li>
                 ))}
               </ul>
-            </motion.div>
+            </div>
           ))}
         </div>
 
