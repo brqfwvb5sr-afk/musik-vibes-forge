@@ -65,7 +65,7 @@ function Hero() {
           </h1>
           <p className="mt-6 max-w-xl font-body text-lg text-bone/85 md:text-xl">
             Musik im Raum, eine hölzerne Tanzfläche und eine ehrliche Bar im Rücken. Kein
-            Club-Türsteher, kein Dresscode — einfach ein unkomplizierter Abend in Inwil.
+            Dresscode — einfach ein unkomplizierter Abend in Inwil.
           </p>
           <div className="mt-10 flex flex-wrap items-center gap-4">
             <Link
@@ -99,12 +99,11 @@ function Hero() {
       </div>
 
       <div className="relative border-t border-bone/20 bg-ink/80 text-bone">
-        <div className="mx-auto grid max-w-7xl grid-cols-2 divide-x divide-bone/20 px-4 text-center font-stamp text-[11px] uppercase tracking-widest sm:grid-cols-4">
+        <div className="mx-auto grid max-w-7xl grid-cols-1 divide-y divide-bone/20 px-4 text-center font-stamp text-[11px] uppercase tracking-widest sm:grid-cols-3 sm:divide-x sm:divide-y-0">
           {[
             ["36", "Google-Sterne"],
             ["4.1", "Ø Bewertung"],
             ["00:30", "Letzter Drink"],
-            ["0", "Türsteher"],
           ].map(([n, l]) => (
             <div key={l} className="py-4">
               <p className="font-display text-3xl leading-none text-amber-neon">{n}</p>
@@ -150,7 +149,7 @@ function Manifest() {
             ],
             [
               "04.",
-              "Kein Dresscode. Kein Türsteher.",
+              "Kein Dresscode.",
               "Kommt in Jeans, kommt in Ausgangs­kleidern. Alle sind willkommen, solange die Stimmung bleibt.",
             ],
           ].map(([n, t, d]) => (
