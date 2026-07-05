@@ -147,7 +147,7 @@ function BarPage() {
             Barzahlung · Twint · Karten ab 20.—
           </p>
           <p className="font-stamp text-sm uppercase tracking-widest text-ink/70">
-            Küche warm bis 23:30 · Kaffee bis Schluss
+            Aktuelle Auswahl und Zeiten gelten vor Ort
           </p>
         </div>
       </section>

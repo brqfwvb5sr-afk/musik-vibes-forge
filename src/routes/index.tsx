@@ -10,7 +10,7 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Der Musik Palast in Inwil (LU): Musik, Tanzfläche und eine ehrliche Bar. Geöffnet bis 00:30.",
+          "Der Musik Palast in Inwil (LU): Musik, Tanzfläche und eine ehrliche Bar. Geöffnet am Mittwoch, Donnerstag, Freitag, Samstag und Sonntag.",
       },
       { property: "og:title", content: "Musik Palast Inwil — Musik, Tanzen & Bar" },
       {
@@ -241,7 +241,7 @@ function BigCTA() {
           KOMM <span className="neon-glow neon-flicker">VORBEI.</span>
         </h2>
         <p className="mx-auto mt-6 max-w-xl text-lg text-bone/80">
-          Hauptstrasse 22, 6034 Inwil. Do–Sa ab 20:00. Reserviere einen Tisch — oder komm einfach.
+          Hauptstrasse 22, 6034 Inwil. Mi und So tagsüber, Mi bis Sa abends. Reserviere einen Tisch — oder komm einfach.
         </p>
         <div className="mt-10 flex flex-wrap justify-center gap-4">
           <a

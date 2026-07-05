@@ -84,7 +84,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         name: "description",
         content:
-          "Der Musik Palast in Inwil (LU): Musik, Tanzfläche und gemütliche Bar. Geöffnet bis 00:30.",
+          "Der Musik Palast in Inwil (LU): Musik, Tanzfläche und gemütliche Bar. Geöffnet am Mittwoch, Donnerstag, Freitag, Samstag und Sonntag.",
       },
       { name: "author", content: "Musik Palast Inwil" },
       { property: "og:title", content: "Musik Palast — Musik & Tanzbar in Inwil" },
@@ -187,13 +187,13 @@ function SiteChrome({ children }: { children: ReactNode }) {
           <div className="marquee-track flex whitespace-nowrap py-1.5 font-stamp text-xs uppercase tracking-widest">
             {Array.from({ length: 2 }).map((_, k) => (
               <div key={k} className="flex shrink-0 items-center gap-8 pr-8">
-                <span>Tanzfläche offen bis 00:30</span>
-                <span>Bar ab 20:00</span>
+                <span>Mi &amp; So ab 13:30</span>
+                <span>Mi bis Sa abends ab 19:30</span>
                 <span>Seit Jahren in Inwil</span>
                 <span>Hauptstrasse 22 · 6034 Inwil</span>
                 <span>★ Reservation: 041 448 40 45</span>
                 <span>Musik und Bar in Inwil</span>
-                <span>Tanzfläche offen bis 00:30</span>
+                <span>Mi bis Sa offen bis 00:30</span>
               </div>
             ))}
           </div>
@@ -240,11 +240,11 @@ function SiteFooter() {
           </div>
           <div className="font-stamp text-sm leading-loose">
             <p className="mb-2 font-display text-xl uppercase text-amber-neon">Öffnungszeiten</p>
-            Do – Sa · ab 20:00
+            Mi · 13:30 – 17:00 / 19:30 – 00:30
             <br />
-            Küche warm · bis 23:30
+            Do – Sa · 19:30 – 00:30
             <br />
-            Letzter Drink · 00:30
+            So · 13:30 – 17:00
           </div>
           <div className="font-stamp text-sm leading-loose">
             <p className="mb-2 font-display text-xl uppercase text-amber-neon">Rechtliches</p>
@@ -270,7 +270,7 @@ function SiteFooter() {
         <div className="mt-6 flex flex-wrap items-center justify-between gap-2 border-t border-bone/20 pt-4 font-stamp text-[10px] uppercase tracking-widest text-bone/60">
           <span>© Musik Palast Inwil</span>
           <span>Musik und Bar in Inwil</span>
-          <span>Bar offen · Türe zu um 00:30</span>
+          <span>Mi bis Sa · offen bis 00:30</span>
         </div>
       </div>
     </footer>

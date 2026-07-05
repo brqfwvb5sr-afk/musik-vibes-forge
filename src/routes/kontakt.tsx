@@ -36,7 +36,14 @@ export const Route = createFileRoute("/kontakt")({
           telephone: "+41414484045",
           url: "https://musik-palast.ch",
           servesCuisine: "Bar",
-          openingHours: ["Th-Sa 20:00-00:30"],
+          openingHours: [
+            "We 13:30-17:00",
+            "We 19:30-00:30",
+            "Th 19:30-00:30",
+            "Fr 19:30-00:30",
+            "Sa 19:30-00:30",
+            "Su 13:30-17:00",
+          ],
         }),
       },
     ],
@@ -110,11 +117,13 @@ function KontaktPage() {
               <table className="mt-3 w-full font-body">
                 <tbody className="divide-y divide-ink/20">
                   {[
-                    ["Mo – Mi", "geschlossen"],
-                    ["Donnerstag", "20:00 – 00:30"],
-                    ["Freitag", "20:00 – 00:30"],
-                    ["Samstag", "20:00 – 00:30"],
-                    ["Sonntag", "geschlossen"],
+                    ["Montag", "geschlossen"],
+                    ["Dienstag", "geschlossen"],
+                    ["Mittwoch", "13:30 – 17:00 / 19:30 – 00:30"],
+                    ["Donnerstag", "19:30 – 00:30"],
+                    ["Freitag", "19:30 – 00:30"],
+                    ["Samstag", "19:30 – 00:30"],
+                    ["Sonntag", "13:30 – 17:00"],
                   ].map(([d, h]) => (
                     <tr key={d}>
                       <td className="py-3 font-display text-xl uppercase text-ink">{d}</td>
