@@ -44,7 +44,7 @@ function cleanHtml(html) {
     .replace(/<link rel="modulepreload"[^>]*>/g, "")
     .replace(/<link rel="stylesheet" href="\/src\/styles\.css"[^>]*>/g, "")
     .replace(/<link rel="stylesheet" href="\/@tanstack-start\/styles\.css[^"]*"[^>]*>/g, "")
-    .replace(/<link rel="icon" href="\/favicon\.ico"[^>]*>/g, `<link rel="icon" href="${basePath}/favicon.ico" type="image/x-icon"/>`)
+    .replace(/<link rel="icon" href="\/favicon\.svg\?v=mp1"[^>]*>/g, `<link rel="icon" href="${basePath}/favicon.svg?v=mp1" type="image/svg+xml"/>`)
     .replace("</head>", `<link rel="stylesheet" href="${basePath}/styles.css"/></head>`);
 
   for (const [from, to] of routeHrefs) {
@@ -81,6 +81,7 @@ async function main() {
     await writeFile(join(outputDir, "styles.css"), css);
     await writeFile(join(outputDir, ".nojekyll"), "");
     await copyFile(join(process.cwd(), "public", "favicon.ico"), join(outputDir, "favicon.ico"));
+    await copyFile(join(process.cwd(), "public", "favicon.svg"), join(outputDir, "favicon.svg"));
     await copyFile(join(process.cwd(), "public", "robots.txt"), join(outputDir, "robots.txt"));
 
     for (const route of routes) {
