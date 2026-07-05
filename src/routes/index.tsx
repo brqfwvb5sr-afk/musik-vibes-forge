@@ -72,7 +72,7 @@ function Hero() {
               to="/kontakt"
               className="poster-amber inline-flex items-center gap-3 px-6 py-4 font-display text-xl uppercase"
             >
-              Tisch reservieren
+              Öffnungszeiten
               <span aria-hidden>→</span>
             </Link>
             <Link
@@ -241,18 +241,12 @@ function BigCTA() {
           KOMM <span className="neon-glow neon-flicker">VORBEI.</span>
         </h2>
         <p className="mx-auto mt-6 max-w-xl text-lg text-bone/80">
-          Hauptstrasse 22, 6034 Inwil. Mi und So tagsüber, Mi bis Sa abends. Reserviere einen Tisch — oder komm einfach.
+          Hauptstrasse 22, 6034 Inwil. Mi und So tagsüber, Mi bis Sa abends. Komm einfach vorbei.
         </p>
         <div className="mt-10 flex flex-wrap justify-center gap-4">
-          <a
-            href="tel:+41414484045"
-            className="poster-amber inline-flex items-center gap-2 px-6 py-4 font-display text-xl uppercase"
-          >
-            041 448 40 45
-          </a>
           <Link
             to="/kontakt"
-            className="border-2 border-bone px-6 py-4 font-display text-xl uppercase text-bone hover:bg-bone hover:text-ink"
+            className="poster-amber inline-flex items-center gap-2 px-6 py-4 font-display text-xl uppercase"
           >
             Route &amp; Öffnungszeiten
           </Link>

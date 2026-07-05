@@ -174,12 +174,6 @@ function SiteChrome({ children }: { children: ReactNode }) {
                 {n.label}
               </Link>
             ))}
-            <a
-              href="tel:+41414484045"
-              className="poster-red ml-2 hidden items-center gap-2 px-3 py-2 font-display text-sm uppercase sm:inline-flex"
-            >
-              041 448 40 45
-            </a>
           </nav>
         </div>
         {/* Marquee ribbon */}
@@ -191,7 +185,6 @@ function SiteChrome({ children }: { children: ReactNode }) {
                 <span>Mi bis Sa abends ab 19:30</span>
                 <span>Seit Jahren in Inwil</span>
                 <span>Hauptstrasse 22 · 6034 Inwil</span>
-                <span>★ Reservation: 041 448 40 45</span>
                 <span>Musik und Bar in Inwil</span>
                 <span>Mi bis Sa offen bis 00:30</span>
               </div>
@@ -223,13 +216,6 @@ function SiteFooter() {
             Hauptstrasse 22
             <br />
             6034 Inwil · Luzern
-            <br />
-            <a
-              href="tel:+41414484045"
-              className="underline decoration-amber-neon underline-offset-4"
-            >
-              041 448 40 45
-            </a>
             <br />
             <a
               href="https://musik-palast.ch"

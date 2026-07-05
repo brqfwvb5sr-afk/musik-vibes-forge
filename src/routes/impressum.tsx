@@ -49,14 +49,6 @@ function ImpressumPage() {
             <p className="font-stamp text-xs uppercase tracking-widest text-oxblood">Kontakt</p>
             <h2 className="mt-2 font-display text-4xl uppercase text-ink">Direkt</h2>
             <p className="mt-4 leading-7 text-ink/80">
-              Telefon:{" "}
-              <a
-                href="tel:+41414484045"
-                className="underline decoration-oxblood underline-offset-4"
-              >
-                041 448 40 45
-              </a>
-              <br />
               E-Mail:{" "}
               <a
                 href="mailto:info@musik-palast.ch"

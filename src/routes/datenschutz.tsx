@@ -19,15 +19,15 @@ export const Route = createFileRoute("/datenschutz")({
 const sections = [
   {
     title: "Verantwortliche Stelle",
-    body: "Musik Palast Inwil, Hauptstrasse 22, 6034 Inwil, Schweiz. Kontakt: info@musik-palast.ch oder 041 448 40 45.",
+    body: "Musik Palast Inwil, Hauptstrasse 22, 6034 Inwil, Schweiz. Kontakt: info@musik-palast.ch.",
   },
   {
     title: "Server-Logs",
     body: "Beim Aufruf der Website werden technische Zugriffsdaten verarbeitet, zum Beispiel IP-Adresse, Datum, Uhrzeit, aufgerufene Seiten, Browser und Betriebssystem. Diese Daten dienen dem sicheren Betrieb, der Fehleranalyse und der Missbrauchsverhinderung.",
   },
   {
-    title: "Kontakt und Reservation",
-    body: "Wenn Besucher telefonisch, per E-Mail oder über verlinkte Kontaktwege mit dem Musik Palast Kontakt aufnehmen, werden die freiwillig mitgeteilten Angaben zur Bearbeitung der Anfrage verwendet.",
+    title: "Kontakt",
+    body: "Wenn Besucher per E-Mail oder über verlinkte Kontaktwege mit dem Musik Palast Kontakt aufnehmen, werden die freiwillig mitgeteilten Angaben zur Bearbeitung der Anfrage verwendet.",
   },
   {
     title: "Google Maps",
@@ -99,7 +99,7 @@ function DatenschutzPage() {
             >
               info@musik-palast.ch
             </a>{" "}
-            oder telefonisch an 041 448 40 45 gerichtet werden.
+            gerichtet werden.
           </p>
           <Link
             to="/impressum"

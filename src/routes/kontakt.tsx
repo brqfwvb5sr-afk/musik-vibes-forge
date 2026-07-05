@@ -4,16 +4,16 @@ export const Route = createFileRoute("/kontakt")({
   component: KontaktPage,
   head: () => ({
     meta: [
-      { title: "Besuch & Reservation — Musik Palast Inwil" },
+      { title: "Besuch & Öffnungszeiten — Musik Palast Inwil" },
       {
         name: "description",
         content:
-          "Hauptstrasse 22, 6034 Inwil. Reservationen unter 041 448 40 45. Öffnungszeiten und Anfahrt zum Musik Palast.",
+          "Hauptstrasse 22, 6034 Inwil. Öffnungszeiten und Anfahrt zum Musik Palast.",
       },
-      { property: "og:title", content: "Besuch & Reservation — Musik Palast Inwil" },
+      { property: "og:title", content: "Besuch & Öffnungszeiten — Musik Palast Inwil" },
       {
         property: "og:description",
-        content: "Hauptstrasse 22, 6034 Inwil · 041 448 40 45. Öffnungszeiten und Anfahrt.",
+        content: "Hauptstrasse 22, 6034 Inwil. Öffnungszeiten und Anfahrt.",
       },
       { property: "og:url", content: "/kontakt" },
     ],
@@ -33,7 +33,6 @@ export const Route = createFileRoute("/kontakt")({
             addressRegion: "LU",
             addressCountry: "CH",
           },
-          telephone: "+41414484045",
           url: "https://musik-palast.ch",
           servesCuisine: "Bar",
           openingHours: [
@@ -92,22 +91,6 @@ function KontaktPage() {
               >
                 Route in Google Maps öffnen →
               </a>
-            </div>
-
-            <div>
-              <p className="font-stamp text-xs uppercase tracking-widest text-oxblood">
-                Reservation
-              </p>
-              <a
-                href="tel:+41414484045"
-                className="mt-2 block font-display text-5xl leading-none text-ink hover:text-oxblood"
-              >
-                041 448 40 45
-              </a>
-              <p className="mt-3 max-w-sm text-ink/70">
-                Am liebsten telefonisch — dann wissen wir, ob's ein Tanzplatz-Tisch werden soll oder
-                ein ruhiger in der Ecke.
-              </p>
             </div>
 
             <div>
